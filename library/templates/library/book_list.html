@@ -1,0 +1,18 @@
+{% extends 'library/base.html' %}
+
+{% block content %}
+    <h2>All Books</h2>
+    <ul>
+        {% for book in books %}
+            <li>
+                <h3>{{ book.title }}</h3>
+                <p>{{ book.author.name }}</p>
+                {% if book.available %}
+                    <p>Status: Available</p>
+                {% else %}
+                    <p>Status: Borrowed</p>
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

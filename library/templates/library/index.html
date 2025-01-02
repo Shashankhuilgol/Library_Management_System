@@ -1,0 +1,23 @@
+{% extends 'library/base.html' %}
+
+{% block content %}
+    <h2>Available Books</h2>
+
+    <!-- Search Bar -->
+    <form method="get" action="{% url 'index' %}">
+        <input type="text" name="q" value="{{ query }}" placeholder="Search by title or author" />
+        <button type="submit">Search</button>
+    </form>
+
+    <ul>
+        {% for book in books %}
+            <li>
+                <h3>{{ book.title }}</h3>
+                <p>{{ book.author.name }}</p>
+                <p><a href="{% url 'borrow_book' book.id %}">Borrow this book</a></p>
+            </li>
+        {% empty %}
+            <p> No books found. </P>
+        {% endfor %}
+    </ul>
+{% endblock %}

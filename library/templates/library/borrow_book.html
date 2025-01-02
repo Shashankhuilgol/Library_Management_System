@@ -1,0 +1,13 @@
+{% extends 'library/base.html' %}
+
+{% block content %}
+    <h2>Borrow Book: {{ book.title }}</h2>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Borrow</button>
+    </form>
+
+    <a href="{% url 'index' %}">Back to Available Books</a>
+{% endblock %}
