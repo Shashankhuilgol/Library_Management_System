@@ -1,0 +1,20 @@
+{% extends 'library/base.html' %}
+
+{% block content %}
+    <h2>Borrowed Books</h2>
+    <ul>
+        {% for borrowed in borrowed_books %}
+            <li>
+                <strong>{{ borrowed.book.title }}</strong> by {{ borrowed.book.author.name }}
+                <br>Borrowed by: {{ borrowed.borrower.name }}
+                <br>Borrowed on: {{ borrowed.borrowed_date }}
+                <form method="post" action="{% url 'return_book' borrowed.id %}">
+                    {% csrf_token %}
+                    <button type="submit">Return Book</button>
+                </form>
+            </li>
+        {% empty %}
+            <p>No books currently borrowed.</p>
+        {% endfor %}
+    </ul>
+{% endblock %}

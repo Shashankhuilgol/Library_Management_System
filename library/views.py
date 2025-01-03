@@ -43,6 +43,10 @@ def borrow_book(request, book_id):
 
     return render(request, 'library/borrow_book.html', {'form': form, 'book': book})
 
+def borrowed_books_list(request):
+    borrowed_books = BorrowedBook.objects.all()
+    return render(request, 'library/borrowed_books_list.html', {'borrowed_books': borrowed_books})
+
 def return_book(request, borrowed_id):
     borrowed = get_object_or_404(BorrowedBook, id=borrowed_id)
     borrowed.return_date = timezone.now()
