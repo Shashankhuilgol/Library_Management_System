@@ -9,6 +9,7 @@ h11==0.14.0
 manage.py==0.2.10
 packaging==24.2
 phonenumbers==8.13.52
+psycopg2-binary==2.9.10
 platformdirs==4.3.6
 sqlparse==0.5.3
 typing_extensions==4.12.2
