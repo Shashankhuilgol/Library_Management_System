@@ -1,0 +1,19 @@
+# ignore the envireonment files
+venv/
+
+# ignore the compiled python files
+__pycache__/
+*.pyc
+*.pyo
+
+# ignore the database file
+db.sqlite3
+
+# ignore the logs
+*.logs
+
+# ignore the IDE/Editor configurations
+.idea/
+.vscode/
+*.swp
+
