@@ -6,7 +6,8 @@ from .forms import BorrowedBookForm
 from library.models import Book
 from django.db.models import Q
 
-
+def home(request):
+    return render(request, 'library/home.html')
 
 def index(request):
     query = request.GET.get('q', '')  # Retrieve the search query from the GET request
