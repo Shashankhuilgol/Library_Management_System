@@ -14,7 +14,7 @@ db.sqlite3
 
 # ignore the IDE/Editor configurations
 .idea/
-.vscode/
+
 *.swp
 
 # ignore the staticfiles
