@@ -1,9 +1,9 @@
 {% extends 'library/base.html' %}
 
 {% block content %}
-    <h2>All Books</h2>
+    <h2>Computer Science Books</h2>
     <ul>
-        {% for book in books %}
+        {% for book in cs_books %}
             <li>
                 <h3>{{ book.title }}</h3>
                 <p>{{ book.author.name }}</p>
@@ -13,6 +13,25 @@
                     <p>Status: Borrowed</p>
                 {% endif %}
             </li>
+        {% empty %}
+            <p>No Computer Science books available.</p>
+        {% endfor %}
+    </ul>
+
+    <h2>Kannada Books</h2>
+    <ul>
+        {% for book in kannada_books %}
+            <li>
+                <h3>{{ book.title }}</h3>
+                <p>{{ book.author.name }}</p>
+                {% if book.available %}
+                    <p>Status: Available</p>
+                {% else %}
+                    <p>Status: Borrowed</p>
+                {% endif %}
+            </li>
+        {% empty %}
+            <p>No Kannada books available.</p>
         {% endfor %}
     </ul>
 {% endblock %}

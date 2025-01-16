@@ -7,11 +7,17 @@ class Author(models.Model):
 
     def __str__(self):
         return self.name
+# Category choices
+CATEGORY_CHOICES = [
+    ('CS', 'Computer Science'),
+    ('KN', 'Kannada'),
+]
 
 class Book(models.Model):
     title = models.CharField(max_length=50)
     author = models.ForeignKey(Author, on_delete=models.CASCADE)
     available = models.BooleanField(default=True)
+    category = models.CharField(max_length=2, choices=CATEGORY_CHOICES)
 
     def __str__(self):
         return self.title

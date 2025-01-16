@@ -18,8 +18,14 @@ def index(request):
 
 
 def book_list(request):
-    books = Book.objects.all()
-    return render(request, 'library/book_list.html', {'books': books})
+    # Get books by category
+    cs_books = Book.objects.filter(category='CS')
+    kannada_books = Book.objects.filter(category='KN')
+
+    return render(request, 'library/book_list.html', {
+        'cs_books': cs_books,
+        'kannada_books': kannada_books
+    })
 
 
 def borrow_book(request, book_id):
