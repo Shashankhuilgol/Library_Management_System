@@ -6,8 +6,7 @@ __pycache__/
 *.pyc
 *.pyo
 
-# ignore the database file
-db.sqlite3
+
 
 # ignore the logs
 *.logs
